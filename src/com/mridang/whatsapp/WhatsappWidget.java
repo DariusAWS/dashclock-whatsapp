@@ -145,7 +145,14 @@ public class WhatsappWidget extends DashClockExtension {
 						Log.v("WhatsappWidget", strLine);
 						try {
 
-							BugSenseHandler.addCrashExtraData("System " + Integer.toString(BugSenseHandler.getCrashExtraData().size()), strLine);
+							try {
+
+								BugSenseHandler.addCrashExtraData("System " + Integer.toString(BugSenseHandler.getCrashExtraData().size()), strLine);
+								
+							} catch (Exception e) {
+								BugSenseHandler.sendException(e);
+								return;
+							}
 
 							if (!strLine.trim().isEmpty()) {
 
@@ -176,7 +183,14 @@ public class WhatsappWidget extends DashClockExtension {
 							Log.v("WhatsappWidget", strLine);
 							try {
 
-								BugSenseHandler.addCrashExtraData("Custom " + Integer.toString(BugSenseHandler.getCrashExtraData().size()), strLine);
+								try {
+
+									BugSenseHandler.addCrashExtraData("Custom " + Integer.toString(BugSenseHandler.getCrashExtraData().size()), strLine);
+									
+								} catch (Exception e) {
+									BugSenseHandler.sendException(e);
+									return;
+								}
 
 								if (!strLine.trim().isEmpty()) {
 
