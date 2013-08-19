@@ -131,6 +131,7 @@ public class WhatsappWidget extends DashClockExtension {
 		edtInformation.visible(false);
 
 		try {
+			final Exception ex = new Exception();
 
 			Log.d("WhatsappWidget", "Reading unread messages from the databases");
 			for (String strDatabase : lstDatabases) {
@@ -165,6 +166,7 @@ public class WhatsappWidget extends DashClockExtension {
 							}
 
 						} catch (Exception e) {
+							ex.setStackTrace(e.getStackTrace());
 							setExitCode(-1);
 						}
 
@@ -203,6 +205,7 @@ public class WhatsappWidget extends DashClockExtension {
 								}
 
 							} catch (Exception e) {
+								ex.setStackTrace(e.getStackTrace());
 								setExitCode(-1);
 							}
 
@@ -233,7 +236,7 @@ public class WhatsappWidget extends DashClockExtension {
 						};
 						RootTools.getShell(true).add(cmdPackaged).waitForFinish();
 
-						BugSenseHandler.sendException(new Exception("Error Parsing response"));
+						BugSenseHandler.sendException(ex);
 						return;
 
 					}
