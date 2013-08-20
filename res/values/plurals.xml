@@ -2,8 +2,8 @@
 <resources>
 
     <plurals name="message">
-        <item quantity="one">%1$d new message</item>
-        <item quantity="other">%1$d new messages</item>
+        <item quantity="one">%1$d nouveau message</item>
+        <item quantity="other">%1$d nouveaux messages</item>
     </plurals>
     
 </resources>
